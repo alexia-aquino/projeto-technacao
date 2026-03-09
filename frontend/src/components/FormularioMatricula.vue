@@ -2,7 +2,7 @@
 import { ref, onMounted } from 'vue'
 
 // URL do Backend
-const API_URL = 'http://localhost:5000'
+const API_URL = 'https://projeto-technacao-backend.onrender.com/'
 
 
 // Interface para tipar os cursos
