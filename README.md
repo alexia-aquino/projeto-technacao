@@ -1,7 +1,7 @@
 <h1>Projeto Technação - Tela de login Fullstack</h1>
 
 <div align="center">
-  <img width="1130" height="439" alt="Image" src="https://github.com/user-attachments/assets/adac668c-c3a2-4be7-a02a-c8e140d153a7" />
+  <img width="3000" height="2000" alt="Image" src="https://github.com/user-attachments/assets/ebf42403-eafc-4782-801f-b03daa1e1418" />
 </div>
 
 <br>
@@ -11,11 +11,19 @@ desenvolvida para uma avaliação da disciplina Desenvolvimento Backend I, no cu
 
 <br>
 
+<b>🔗 Links úteis:</b>
+<ul>
+  <li> <b>Acesse o projeto:</b> <a href="https://projeto-technacao.vercel.app/">https://projeto-technacao.vercel.app/</a></li>
+  <li> <b>Linkedin:</b> <a href="https://www.linkedin.com/in/alexiaaquino/">https://www.linkedin.com/in/alexiaaquino/</a></li>
+</ul>
+<br>
+
 <h2>Tecnologias:</h2>
 <ul>
   <li> <b>Backend:</b> Node.js + Express + TypeScript</li>
   <li> <b>Frontend:</b> Vue.js 3 + TypeScript + Vite</li>
   <li> <b>Design:</b> Adobe Photoshop + Adobe Illustrator + Aplicações de UX/UI</li>
+  <li> <b>Hospedagem:</b> Vercel (Frontend) + Render (Backend)</li>
 </ul>
 
 <br>
@@ -42,7 +50,8 @@ desenvolvida para uma avaliação da disciplina Desenvolvimento Backend I, no cu
 
 <h2>Imagotipo:</h2>
 <div align="center">
-<img width="350" alt="Image" src="https://github.com/user-attachments/assets/6ec8d6e0-1df7-4593-ba8b-1a158611e4e2" />
+  <img width="350" alt="Image" src="https://github.com/user-attachments/assets/2b682358-9481-467b-a36f-2bc480c740f6" />
+  <img width="350" alt="Image" src="https://github.com/user-attachments/assets/29b73d9c-c440-4a1c-b11a-907c056aa577" />
 </div>
 
 <br>
