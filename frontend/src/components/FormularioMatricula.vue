@@ -45,7 +45,7 @@ const realizarMatricula = async () => {
   // Validação
   const nomeTrimado = nome.value.trim()
   const partesNome = nomeTrimado.split(' ')
-  
+
   if (partesNome.length < 2) {
     mensagem.value = 'Por favor, insira nome e sobrenome.'
     tipoMensagem.value = 'erro'
@@ -79,7 +79,7 @@ const realizarMatricula = async () => {
     if (response.ok) {
       mensagem.value = data.mensagem || 'Matrícula realizada com sucesso!'
       tipoMensagem.value = 'sucesso'
-      
+
       // Limpar formulário
       nome.value = ''
       email.value = ''
@@ -99,11 +99,15 @@ const realizarMatricula = async () => {
 
 <template>
   <div class="container">
-    <div class="logo-topo">
-        <img src="./assets/img/logo do projeto.png" alt="Logo" class="logo" />
-      </div>
+    <video class="video-fundo" autoplay loop muted playsinline>
+      <source src="./assets/img/fundo2.mp4" type="video/mp4">
+    </video>
 
-    <div class="card">
+    <header><div class="logo-topo">
+      <img src="./assets/img/logo.webp" width="150" height="150" alt="Logo" class="logo" fetchpriority="high" />
+    </div></header>
+
+    <main><div class="card">
       <h1>Matricule-se já!</h1>
       <p class="subtitle">Escolha um curso e comece a aprender.</p>
 
@@ -115,39 +119,26 @@ const realizarMatricula = async () => {
 
       <!-- Formulário -->
       <form v-else @submit.prevent="realizarMatricula">
-        
+
         <!-- Nome -->
         <div class="form-group">
           <label for="nome">Nome Completo</label>
-          <input
-            id="nome"
-            v-model="nome"
-            type="text"
-            placeholder="Seu nome completo"
-            :class="{ invalid: !nome && mensagem.includes('Preencha') }"
-          />
+          <input id="nome" v-model="nome" type="text" placeholder="Seu nome completo"
+            :class="{ invalid: !nome && mensagem.includes('Preencha') }" />
         </div>
 
         <!-- Email -->
         <div class="form-group">
           <label for="email">E-mail</label>
-          <input
-            id="email"
-            v-model="email"
-            type="email"
-            placeholder="seu@email.com"
-            :class="{ invalid: !email && mensagem.includes('Preencha') }"
-          />
+          <input id="email" v-model="email" type="email" placeholder="seu@email.com"
+            :class="{ invalid: !email && mensagem.includes('Preencha') }" />
         </div>
 
         <!-- Curso -->
         <div class="form-group">
-          <label for="curso">Selecione o Curso</label>
-          <select
-            id="curso"
-            v-model="cursoSelecionado"
-            :class="{ invalid: !cursoSelecionado && mensagem.includes('Preencha') }"
-          >
+          <label for="curso">Selecione o curso</label>
+          <select id="curso" v-model="cursoSelecionado"
+            :class="{ invalid: !cursoSelecionado && mensagem.includes('Preencha') }">
             <option :value="null" disabled>Escolha uma opção</option>
             <option v-for="curso in cursos" :key="curso.id" :value="curso.id">
               {{ curso.title }} – {{ curso.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) }}
@@ -166,12 +157,14 @@ const realizarMatricula = async () => {
         </div>
 
       </form>
-    </div>
+    </div></main>
+
   </div>
 </template>
 
 <style scoped>
 .container {
+  position: relative; 
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -179,26 +172,44 @@ const realizarMatricula = async () => {
   min-height: 100vh;
   padding-top: 20px;
   padding-bottom: 50px;
-background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-                    url('./assets/img/fundo.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow: hidden;
+}
+
+.video-fundo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+  filter: blur(6px);
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: -1;
 }
 
 .logo-topo {
-  margin-bottom: 2px; 
+  margin-bottom: 2px;
   text-align: center;
-    animation: desceLogo 0.5s ease-out forwards;
-    opacity: 0;
-    transform: translateY(-20px);
-    }
+  animation: desceLogo 0.5s ease-out forwards;
+  opacity: 0;
+  transform: translateY(-20px);
+}
 
-    @keyframes desceLogo {
-        to {
-        opacity: 1;
-        transform: translateY(0);
+@keyframes desceLogo {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -211,19 +222,20 @@ background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
   background: white;
   padding: 2.5rem;
   border-radius: 16px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
   width: 100%;
   max-width: 450px;
-    animation: sobeCard 0.6s ease-out 0.2s forwards; /* 0.2s de delay */
-    opacity: 0;
-    transform: translateY(30px);
+  animation: sobeCard 0.6s ease-out 0.2s forwards;
+  /* 0.2s de delay */
+  opacity: 0;
+  transform: translateY(30px);
 }
 
-    @keyframes sobeCard {
-        to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+@keyframes sobeCard {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 h1 {
@@ -254,7 +266,8 @@ label {
   font-size: 0.9rem;
 }
 
-input, select {
+input,
+select {
   width: 100%;
   padding: 0.9rem;
   border: 2px solid #e0e0e0;
@@ -264,13 +277,15 @@ input, select {
   transition: all 0.3s ease;
 }
 
-input:focus, select:focus {
+input:focus,
+select:focus {
   outline: none;
   border-color: #667eea;
   box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
 }
 
-input.invalid, select.invalid {
+input.invalid,
+select.invalid {
   border-color: #e74c3c;
   background-color: #fdf2f2;
 }
@@ -341,12 +356,21 @@ button:disabled {
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Responsividade */
@@ -356,11 +380,11 @@ button:disabled {
   .card {
     padding: 1.5rem;
   }
-  
+
   h1 {
     font-size: 1.4rem;
   }
-  
+
   .logo {
     max-width: 130px;
   }
@@ -371,38 +395,39 @@ button:disabled {
   .container {
     padding: 15px;
   }
-  
+
   .card {
     padding: 1.2rem;
     border-radius: 12px;
   }
-  
+
   h1 {
     font-size: 1.2rem;
   }
-  
+
   .subtitle {
     font-size: 0.8rem;
   }
-  
+
   label {
     font-size: 0.8rem;
   }
-  
-  input, select {
+
+  input,
+  select {
     padding: 0.7rem;
     font-size: 0.9rem;
   }
-  
+
   button {
     padding: 0.8rem;
     font-size: 0.9rem;
   }
-  
+
   .logo {
     max-width: 110px;
   }
-  
+
   .message {
     font-size: 0.8rem;
     padding: 0.6rem;
@@ -414,11 +439,11 @@ button:disabled {
   .card {
     padding: 1rem;
   }
-  
+
   h1 {
     font-size: 1.1rem;
   }
-  
+
   .logo {
     max-width: 90px;
   }
