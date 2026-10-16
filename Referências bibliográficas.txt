@@ -1,0 +1,5 @@
+ALVES, W. P. Projetos de sistemas web: conceitos, estruturas, criação de banco de dados e ferramentas de desenvolvimento. São Paulo: Saraiva, 2015. E-book. ISBN: 9788536532462.
+
+FREITAS, P. H. C. et al. Programação back end III. Porto Alegre: Grupo A, 2021. E-book. ISBN: 9786581492274.
+
+OLIVEIRA, C. L. V.; ZANETTI, H. A. P. Javascript descomplicado: programação para web, IoT e dispositivos móveis. São Paulo: Saraiva, 2020. E-book. ISBN: 9788536533100.
